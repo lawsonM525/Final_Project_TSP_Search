@@ -5,8 +5,6 @@
 ## 2-Week Plan
 ### Week 1:
 #### Day 1:
-Create a new Java project in your preferred IDE.
-
 Define the City class with attributes like name, location, and a list of roads that connect it to other cities.
 
 Define the Road class with attributes like start city, end city, and weight/distance.
