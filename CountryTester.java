@@ -43,6 +43,9 @@ public class CountryTester {
         System.out.println(" ");
         System.out.println(c.toString());
         System.out.println(" ");
+        System.out.println("Testing dfs method, traversing from D to C");
+        System.out.println("Distance from D to C: " + c.dfs(city4, city3, 0.0));
+        System.out.println(" ");
         System.out.println("ENDING TESTS");
     }
 }

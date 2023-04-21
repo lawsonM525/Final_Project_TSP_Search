@@ -1,8 +1,9 @@
+// Country class is a Map representation of the graph of cities and roads.
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
-// Q: is it okay to represent it as a HashMap?
-// Can't seem to extend Graph, it's not a class in Java, it's in Javax.ide.util
+
 public class Country extends HashMap<City, ArrayList<Road>> {
 
     /**
@@ -31,18 +32,62 @@ public class Country extends HashMap<City, ArrayList<Road>> {
     public void addRoad(City startCity, City destinationCity, double distance) {
         // Create a new Road object with the given parameters
         Road road = new Road(startCity, destinationCity, distance);
+        Road reverseRoad = new Road(destinationCity, startCity, distance);
         
         // Check if the start city already has roads
         if (containsKey(startCity)) {
             // If it does, add the new road to the existing list
             get(startCity).add(road);
+            // adding reverse road to make roads bi directional
+            get(destinationCity).add(reverseRoad);
         } else {
             // If it doesn't, create a new list and add the road to it
             ArrayList<Road> roads = new ArrayList<>();
             roads.add(road);
             put(startCity, roads);
+            get(destinationCity).add(reverseRoad);
         }
+
+
     }
+
+
+    /**
+     * Does a depth-first search from a start city to an end city, keeping track of the distance traveled.
+     * @param start
+     * @param end
+     * @param totalDistance
+     */
+    public double dfs(City start, City end, double totalDistance) {
+        start.setVisited(true); // mark the start city as visited
+
+        // if the end city is reached, return the distance to the end city
+        if (start.equals(end)) {
+            System.out.println("Reached end city: " + end.getName());
+            System.out.println("Total distance: " + totalDistance + " miles");
+            System.out.println(this.toString());
+            return totalDistance;
+        }
+
+        // update on current state of traveler
+        System.out.println("Current city: " + start.getName());
+        System.out.println("Current total distance: " + totalDistance + " miles");
+    
+        // iterate through all the roads of the current city
+        for (Road road : get(start)) {
+            City destinationCity = road.getDestinationCity();
+    
+            // if the destination city has not been visited yet, print the current state of the map and then perform DFS on it
+            if (!destinationCity.isVisited()) {
+                System.out.println(this.toString());
+                return dfs(destinationCity, end, totalDistance + road.getDistance());
+            }
+        }
+
+        // if no roads are found, return -1
+        return -1;
+    }
+    
     
 
     /**
@@ -82,7 +127,12 @@ public class Country extends HashMap<City, ArrayList<Road>> {
         // Append the header row with the city names
         sb.append("\t");
         for (City city : vertices) {
-            sb.append(city.getName());
+            if (city.isVisited()) {
+                sb.append("x-"+city.getName()+"-x");
+            }
+            else{
+                sb.append(city.getName());
+            }
             sb.append("\t");
         }
         sb.append("\n");

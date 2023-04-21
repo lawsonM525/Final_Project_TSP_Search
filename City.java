@@ -11,6 +11,7 @@ public class City {
     String name;
     String location;
     List<Road> roads;
+    boolean visited;
 
     /**
      * Constructor for City class.
@@ -21,6 +22,7 @@ public class City {
     public City(String name) {
         this.name = name;
         this.roads = new ArrayList<Road>();
+        this.visited = false;
     }
 
     /**
@@ -39,6 +41,20 @@ public class City {
      */
     public List<Road> getRoads() {
         return this.roads;
+    }
+
+    /**
+     * Returns whether or not the city has been visited.
+     */
+    public boolean isVisited() {
+        return this.visited;
+    }
+
+    /**
+     * Sets whether or not the city has been visited.
+     */
+    public void setVisited(boolean visited) {
+        this.visited = visited;
     }
 
     /**
