@@ -18,9 +18,8 @@ public class City {
      * @param name - The name of the city.
      * @param location - The location of the city.
      */
-    public City(String name, String location) {
+    public City(String name) {
         this.name = name;
-        this.location = location;
         this.roads = new ArrayList<Road>();
     }
 
@@ -31,15 +30,6 @@ public class City {
      */
     public String getName() {
         return this.name;
-    }
-
-    /**
-     * Returns the location of the city.
-     *
-     * @return The location of the city.
-     */
-    public String getLocation() {
-        return this.location;
     }
 
     /**
@@ -68,6 +58,6 @@ public class City {
      * @return The string representation of the City object.
      */
     public String toString() {
-        return "City name: " + this.name + ", Location: " + this.location;
+        return this.name;
     }
 }
