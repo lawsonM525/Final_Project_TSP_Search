@@ -44,21 +44,14 @@ Implement the driver that allows the user to choose two cities and see the dista
 Test the driver with sample data.
 
 #### Day 10-11:
-Refactor the code to optimize the Graph traversal algorithm for large graphs.
-
-Use profiling tools to measure the performance of your code.
+Clean up the code, adding comments everywhere as needed.
 
 #### Day 12:
 Add error handling to your code to handle edge cases.
 
 Test the code with edge cases like invalid input data.
 
-#### Day 13:
-Implement a method to remove cities and roads from the Graph.
-
-Test the remove method with sample data.
-
-#### Day 14:
+#### Day 13 - 14:
 Perform final testing and debugging on your code.
 
 Document your code and submit your project.
