@@ -64,8 +64,7 @@ public class Country extends HashMap<City, ArrayList<Road>> {
         // if the end city is reached, return the distance to the end city
         if (start.equals(end)) {
             System.out.println("Reached end city: " + end.getName());
-            System.out.println("Total distance: " + totalDistance + " miles");
-            System.out.println(this.toString());
+            System.out.println("===> TOTAL DISTANCE: " + totalDistance + " miles");
             return totalDistance;
         }
 
