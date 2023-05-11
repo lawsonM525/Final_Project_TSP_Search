@@ -3,101 +3,64 @@
 import java.util.Scanner;
 
 public class Main {
-    
-    static Country usa;
-    static City boston;
-    static City albany;
-    static City newyork;
-    static City philadelphia;
-    static City washington;
 
     public static void main(String[] args){
 
-        // Creating the country: USA
-        Country usa = new Country();
-        // Creating the capital cities (east coast of the USA)
-        City boston = new City("Boston");
-        boston.name = "BOS";
-        City albany = new City("Albany");
-        albany.name = "ALB";
-        City newyork = new City("New York");
-        newyork.name = "NYC";
-        City philadelphia = new City("Philadelphia");
-        philadelphia.name = "PHL";
-        City washington = new City("Washington");
-        washington.name = "WAS";
-        // Adding the cities to the country
-        usa.addCity(boston);
-        usa.addCity(albany);
-        usa.addCity(newyork);
-        usa.addCity(philadelphia);
-        usa.addCity(washington);
-        // Adding the roads between the cities
-        usa.addRoad(boston, albany, 200.0);
-        usa.addRoad(boston, newyork, 200);
-        usa.addRoad(philadelphia, newyork, 200);
-        usa.addRoad(newyork, albany, 200);
-        usa.addRoad(philadelphia, albany, 500);
-        usa.addRoad(philadelphia, washington, 200);
-        //TODO: Finish adding roads
+        // User creates country with cities
 
-
-        // user interaction
-        System.out.println("Welcome to the USA!");
-        System.out.println("You are currently in Boston, Massachusetts.");
-        System.out.println(usa);
-        System.out.println("Where would you like to go?");
-        printMenu();
-        
-        // User exploration
-
-        City currentCity = boston;
-        Scanner sc = new Scanner(System.in);
-        String input = sc.nextLine();
-
-        if(input.equals("1")||input.equals("Boston")||input.equals("boston")){
-            usa.dfs(currentCity, boston, 0.0);
-        }
-        else if(input.equals("2")||input.equals("Albany")||input.equals("albany")){
-            usa.dfs(currentCity, albany, 0.0);
-        }
-        else if(input.equals("3")||input.equals("New York")||input.equals("new york")){
-            usa.dfs(currentCity, newyork, 0.0);
-        }
-        else if(input.equals("4")||input.equals("Philadelphia")||input.equals("philadelphia")){
-            usa.dfs(currentCity, philadelphia, 0.0);
-        }
-        else if(input.equals("5")||input.equals("Washington")||input.equals("washington")){
-            usa.dfs(currentCity, washington, 0.0);
-        }
-        else if(input.equals("exit")){
-            System.out.println("Goodbye!");
-            System.exit(0);
-        }
-        else{
-            System.out.println("Invalid input. Please try again.");
+        Country country = new Country();  // Create a new Country object
+        Scanner scanner = new Scanner(System.in);  // Create a new Scanner object for user input
+        System.out.println("Welcome to the Virtual Traveller!");
+        System.out.println("Please enter the name of your country: ");
+        String countryName = scanner.nextLine();  // User inputs the country name
+        country.name = countryName;  // Set the country name to the inputted name
+        System.out.println("Please enter the number of cities in your country: ");
+        int numCities = scanner.nextInt();  // User inputs the number of cities in the country
+        scanner.nextLine();  // Consume newline left-over
+        for (int i = 0; i < numCities; i++) {  // For each city...
+            System.out.println("Please enter the name of city " + (i + 1) + ": ");
+            String cityName = scanner.nextLine();  // User inputs the city name
+            City city = new City(cityName);  // Create a new City object with the inputted name
+            country.addCity(city);  // Add the city to the country
         }
 
+        // User creates roads between cities
+
+        System.out.println("Please enter the number of roads in your country: "); 
+        int numRoads = scanner.nextInt();  // User inputs the number of roads in the country
+        scanner.nextLine();  // Consume newline left-over
+        for (int i = 0; i < numRoads; i++) {  // For each road...
+            System.out.println("Please enter the name of the starting city of road " + (i + 1) + ": ");
+            String startCityName = scanner.nextLine();  // User inputs the starting city name
+            System.out.println("Please enter the name of the destination city of road " + (i + 1) + ": ");
+            String destinationCityName = scanner.nextLine();  // User inputs the destination city name
+            System.out.println("Please enter the distance of road " + (i + 1) + ": ");
+            double distance = scanner.nextDouble();  // User inputs the distance of the road
+            scanner.nextLine();  // Consume newline left-over
+            City startCity = country.getCity(startCityName);  // Get the City object for the starting city
+            City destinationCity = country.getCity(destinationCityName);  // Get the City object for the destination city
+            country.addRoad(startCity, destinationCity, distance);  // Add the road to the country
+        }
+
+        // User chooses starting and destination cities
+
+        System.out.println("Please enter the name of the starting city: ");
+        String startCityName = scanner.nextLine();  // User inputs the starting city name
+        System.out.println("Please enter the name of the destination city: ");
+        String destinationCityName = scanner.nextLine();  // User inputs the destination city name
+        City startCity = country.getCity(startCityName);  // Get the City object for the starting city
+        City destinationCity = country.getCity(destinationCityName);  // Get the City object for the destination city
+
+        // DFS traversal from starting city to destination city
+
+        System.out.println("Starting DFS traversal from " + startCityName + " to " + destinationCityName + "...");
+        country.dfs(startCity, destinationCity);  // DFS traversal from starting city to destination city
+        System.out.println("DFS traversal complete!");
+
+        // Program ends
+
+        System.out.println("Thank you for using the Virtual Traveller!");
+        scanner.close();  // Close the Scanner object
     }
-
-
-    public static void mainBuild(){
-
-    }
-
-
-    public static void printMenu(){
-        System.out.println("1. Boston");
-        System.out.println("2. Albany");
-        System.out.println("3. New York");
-        System.out.println("4. Philadelphia");
-        System.out.println("5. Washington");
-
-        System.out.println("Type 'exit' to exit the program.");
-    }
-
-
-
-
 
 }

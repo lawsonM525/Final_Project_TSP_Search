@@ -6,6 +6,8 @@ import java.util.HashMap;
 
 public class Country extends HashMap<City, ArrayList<Road>> {
 
+    String name;
+
     /**
      * Constructor for Country class.
      */
@@ -51,6 +53,20 @@ public class Country extends HashMap<City, ArrayList<Road>> {
 
     }
 
+    /**
+     * Finds city with the given name in the country
+     * @param name name of city to be found
+     * @return city with given name
+     */
+    public City getCity(String name) {
+        for (City city : keySet()) {
+            if (city.getName().equals(name)) {
+                return city;
+            }
+        }
+        System.out.println("City not found");
+        return null;
+    }
 
     /**
      * Does a depth-first search from a start city to an end city, keeping track of the distance traveled.
@@ -87,7 +103,16 @@ public class Country extends HashMap<City, ArrayList<Road>> {
         // if no roads are found, return -1
         return -1;
     }
-    
+
+    /**
+     * Wrapper method for dfs.
+     * @param start start city
+     * @param end end city
+     * @return distance traveled
+     */
+    public double dfs(City start, City end) {
+        return dfs(start, end, 0);
+    }   
     
 
     /**
