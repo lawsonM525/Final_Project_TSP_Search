@@ -1,1 +1,105 @@
+Virtual Traveller User Manual
+
+Introduction
+
+Virtual Traveller is a text-based simulation that allows you to create a virtual country with cities and roads, and then use a Depth-First Search (DFS) algorithm to travel between two cities. This user manual will guide you through the steps required to interact with the program.
+
+Program Steps
+
+Start the Program: Run the program from your Java integrated development environment (IDE) or from the command line.
+
+Name Your Country: When prompted with "Please enter the name of your country: ", enter the name of your country and press enter.
+
+Add Cities:
+
+You will be prompted to enter the number of cities in your country. Type the number and press enter.
+For each city, you will be asked to enter its name. Do so and press enter. Repeat this for all your cities.
+Create Roads:
+
+You will be prompted to enter the number of roads in your country. Type the number and press enter.
+For each road, you will be asked to enter the name of the starting city, the name of the destination city, and the distance of the road. Do so and press enter after each input. Repeat this for all your roads.
+Choose Starting and Destination Cities:
+
+You will be prompted to enter the name of the starting city for the DFS traversal. Type the name and press enter.
+Next, you will be prompted to enter the name of the destination city for the DFS traversal. Type the name and press enter.
+DFS Traversal:
+
+The program will now perform a DFS traversal from your chosen starting city to your chosen destination city. The progress of the traversal will be displayed.
+End of Program:
+
+After the DFS traversal is complete, a message will be displayed saying "DFS traversal complete!".
+A final message "Thank you for using the Virtual Traveller!" will be displayed, indicating the end of the program.
+Notes
+
+Please ensure to enter the names of cities and roads as prompted, ensuring that names match exactly when referring to the same city.
+When entering distances, you can enter any positive number, which could represent kilometers, miles, etc., depending on your preference.
+
+
+Here are some example inputs you can use to check out the virtual traveller:
+
+Example 1:
+
+USA
+5
+New York
+Los Angeles
+Chicago
+Houston
+Phoenix
+6
+New York
+Los Angeles
+2800
+Los Angeles
+Phoenix
+375
+Phoenix
+Houston
+1180
+Houston
+Chicago
+1090
+Chicago
+New York
+790
+Los Angeles
+Chicago
+2025
+New York
+Houston
+
+
+Example 2:
+
+Ghana
+5
+Accra
+Kumasi
+Tamale
+Sekondi-Takoradi
+Sunyani
+7
+Accra
+Kumasi
+255
+Kumasi
+Tamale
+313
+Tamale
+Sekondi-Takoradi
+670
+Sekondi-Takoradi
+Sunyani
+210
+Sunyani
+Accra
+380
+Accra
+Tamale
+568
+Kumasi
+Sunyani
+265
+Accra
+Sunyani
 

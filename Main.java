@@ -1,4 +1,4 @@
-// This class allows for the user to interact with the program (with a pre-defined country, the USA) 
+// This class allows for the user to interact with the program 
 // The user is able to watch how the DFS algorithm searches from one state of the country to another.
 import java.util.Scanner;
 

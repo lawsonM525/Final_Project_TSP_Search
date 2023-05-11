@@ -2,7 +2,7 @@
 
 ## Project Description & Requirements
 
-This Java project simulates travel across cities in a country using a depth-first search (DFS) algorithm. It allows users to explore a dynamically created graph of cities (nodes) and roads (edges), each road having a distance attribute, by traversing from one city to another, keeping track of the total distance traveled.
+This Virtual Traveler simulates travel across cities in a country using a depth-first search (DFS) algorithm. It allows users to explore a dynamically created graph of cities (nodes) and roads (edges), each road having a distance attribute, by traversing from one city to another, keeping track of the total distance traveled.
 
 - Contains a graph or a tree: Country class is a graph represented as an adjacency matrix. The user interaction part in Main.java allows users to grow the graph by adding new nodes (cities) and edges (roads) interactively. This ensures the graph is not hardwired/static.
 
