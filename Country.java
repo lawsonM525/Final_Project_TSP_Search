@@ -61,6 +61,7 @@ public class Country extends HashMap<City, ArrayList<Road>> {
     public double dfs(City start, City end, double totalDistance) {
         start.setVisited(true); // mark the start city as visited
 
+        // base case
         // if the end city is reached, return the distance to the end city
         if (start.equals(end)) {
             System.out.println("Reached end city: " + end.getName());
