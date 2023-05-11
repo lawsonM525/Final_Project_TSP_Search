@@ -59,11 +59,11 @@ Test the driver with sample data.
 Clean up the code, adding comments everywhere as needed.
 
 #### Day 12:
-Add error handling to your code to handle edge cases.
+Add error handling to the code to handle edge cases.
 
 Test the code with edge cases like invalid input data.
 
 #### Day 13 - 14:
-Perform final testing and debugging on your code.
+Perform final testing and debugging on the code.
 
-Document your code and submit your project.
+Document the code and submit the project.
