@@ -101,6 +101,7 @@ public class Country extends HashMap<City, ArrayList<Road>> {
         }
 
         // if no roads are found, return -1
+        System.out.println("No roads found between " + start.getName() + " and " + end.getName() + ".");
         return -1;
     }
 
