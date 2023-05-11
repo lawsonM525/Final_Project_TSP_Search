@@ -1,6 +1,18 @@
 # Depth-First Search in a Country of Cities
 
-## Description
+## Project Description & Requirements
+
+This Java project simulates travel across cities in a country using a depth-first search (DFS) algorithm. It allows users to explore a dynamically created graph of cities (nodes) and roads (edges), each road having a distance attribute, by traversing from one city to another, keeping track of the total distance traveled.
+
+- Contains a graph or a tree: Country class is a graph represented as an adjacency matrix. The user interaction part in Main.java allows users to grow the graph by adding new nodes (cities) and edges (roads) interactively. This ensures the graph is not hardwired/static.
+
+- Uses a Java built-in data structure: The Country class uses a HashMap (a built-in Java data structure) where each city (key) maps to a list of roads (value). This representation allows the graph to be grown dynamically by inserting new cities and roads. The HashMap is suitable for this task because it allows constant time complexity for get and put operations.
+
+- Uses inheritance: The Country class extends HashMap, demonstrating class inheritance.
+
+- Contains at least one generic class: The project uses generic classes in several instances. For instance, ArrayList<Road> is a generic class used to store a list of road objects. Similarly, HashMap<City, ArrayList<Road>> is a generic class used to represent the graph.
+
+- Creative integration of adjacency matrix: The Country class contains a toString method that prints the graph as an adjacency matrix. Each weight in the matrix represents the distance between two connected cities, and 0 represents no road between two cities. When a city is visited, this is represented in the matrix by surrounding the city name with "x - x". This method creatively integrates the use of adjacency matrices into the project.
 
 ## 2-Week Plan
 ### ~~Week 1:~~
